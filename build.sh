@@ -117,7 +117,7 @@ fi
 # 開始時の投稿
 if [ "${toot}" = "true" ]; then
 	twstart=$(echo -e "${device} 向け ${source} のビルドを開始します。 \n\n$starttime #${TOOT_HASHTAG}")
-	echo ${twstart} | toot --visibility ${TOOT_VISIBILITY}
+	/usr/bin/twty ${twstart}
 fi
 
 # ビルド
@@ -143,7 +143,7 @@ echo -e "\n"
 if [ "${toot}" = "true" ]; then
 	endtime=$(date '+%Y/%m/%d %H:%M:%S')
 	twfinish=$(echo -e "${statustw}\n\n${endstr}\n\n${endtime} #${TOOT_HASHTAG}")
-	echo ${twfinish} | toot --visibility ${TOOT_VISIBILITY}
+	/usr/bin/twty ${twfinish}
 fi
 
 # Pushbullet APIを使ってプッシュ通知も投げる。文言は適当に結果から切り出したもの
